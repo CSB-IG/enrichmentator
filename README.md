@@ -16,4 +16,5 @@
 ##### Enrichmentator must be able to read multiple communities. 
 ##### Enrichmentator could be used upon other process databases. 
 
+######The name Enrichmentator started as a joke. But it stuck. 
 ######Share and Enjoy. 
