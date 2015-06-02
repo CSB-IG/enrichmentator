@@ -1,4 +1,4 @@
-# enrichmentator
+# ENRICHMENTATOR
 
 #####Enrichmentator is a tool to perform systematical enrichment analysis of gene sets.
 #####Enrichmentator is written in R 
