@@ -8,6 +8,7 @@ nombre_comunidad<-deparse(substitute(x))
 library(org.Hs.eg.db)
 library(KEGG.db)
 library(HTSanalyzeR)
+library("stringr")
 
 #input: character string 
 #comunidad<-read.csv(comunidad.csv)
@@ -21,7 +22,7 @@ COMUNIDAD_ENTREZ<-names(COMUNIDAD_ENTREZ)
 
 #leer una matriz de expresión, con los gene symbols
 
-matriz_nombres_genes <- read.table("/home/sergio/documents/COMUNIDADES_SUBTIPOS/matriz_nombres_genes.csv", row.names = 1, header=TRUE, quote="\"", stringsAsFactors=FALSE)
+matriz_nombres_genes <- read.table("matriz_nombres_genes.csv", row.names = 1, header=TRUE, quote="\"", stringsAsFactors=FALSE)
 matrix<-as.matrix(matriz_nombres_genes)
 matrix<-as.numeric(matrix)
 names(matrix)<-rownames(matriz_nombres_genes)
@@ -95,3 +96,11 @@ rownames(resultados_GS_GO_CC_significativos)<-Term(rownames(resultados_GS_GO_CC_
 nombre_GS_GO_CC<-paste0("comunidad_GS_GO_CC_", nombre_comunidad)
 write.table(resultados_GS_GO_CC_significativos, file = nombre_GS_GO_CC, sep ="\t", col.names = NA, row.names = TRUE)
 }
+
+args <- commandArgs(trailingOnly = TRUE)
+comunidad = args[1]
+
+Com <- read.table(comunidad,stringsAsFactors = FALSE)
+Com <- Com$V1
+
+enrichmentator(Com)
