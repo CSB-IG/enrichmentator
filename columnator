@@ -6,7 +6,7 @@ BEGIN {
 	comunidad = 3
 	kegg = 4
 	gobp = 5
-	gdcc = 6
+	gocc = 6
 	gomf = 7
 	nrow = 1 # contador de fila
 	ncol = 1 # contador de columna
