@@ -18,7 +18,7 @@ NR > 1 {
 	# Generar los índices para mostrar la info
 
 	# seleccionar la columna de interés
-	search = kegg
+	#search = kegg
 	split($search, array, ";")
 
 	rownames[nrow] = $subtipo "_" $componente "_" $comunidad
