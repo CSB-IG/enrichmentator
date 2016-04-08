@@ -17,6 +17,9 @@ NR > 1 {
 	# Generar los índices para mostrar la info
 
 	split($kegg, array, ";")
+
+	rownames[NR] = $subtipo "_" $componente "_" $comunidad
+
 	for (i=1; i <= length(array); i++) {
 		# limpiar id para evitar repetidos
 		id = array[i]
@@ -26,7 +29,6 @@ NR > 1 {
 			colnames[n] = id
 			n+=1
 		}
-		rownames[NR] = $subtipo "_" $componente "_" $comunidad
 		rows[NR][columns[id]] = 1
 	}
 }
