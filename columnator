@@ -34,7 +34,7 @@ END {
 	# HEADER
 	printf(OFS) # name
 	# print colnames
-	for (col=1; col<=n; col++) {
+	for (col=1; col<n; col++) {
 		printf(colnames[col] OFS)
 	}
 	printf(ORS)
@@ -43,7 +43,7 @@ END {
 	row = 1
 	for (var in rows) {
 		printf(rownames[row] OFS) #name
-		for (col=1; col<=n; col++) {
+		for (col=1; col<n; col++) {
 			printf((rows[row][col] == 1 ? 1 : 0) OFS)
 		}
 		printf(ORS)
