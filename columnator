@@ -1,0 +1,58 @@
+#!/usr/bin/awk -f
+BEGIN {
+	FS=","
+	subtipo=1
+	componente=2
+	comunidad=3
+	kegg=4
+	gobp=5
+	gdcc=6
+	gomf=7
+	n=1 #Contador para ID de columna
+	OFS=","
+	ORS="\n"
+	colnames[1]="SUBTYPE"
+}
+NR > 1 {
+	# Generar los índices para mostrar la info
+
+	row = NR -1 # Corrige error por uno dado que nos saltamos el encabezado
+
+	split($kegg, array, ";")
+
+	rownames[row] = $subtipo "_" $componente "_" $comunidad
+
+	for (i=1; i <= length(array); i++) {
+		# limpiar id para evitar repetidos
+		id = array[i]
+		if (id == "X") { continue }
+		gsub(/^[ \t]+|[ \t]+$/, "", id)
+		if (!(columns[id])) {
+			columns[id] = n
+			colnames[n] = id
+			n+=1
+		}
+		rows[row][columns[id]] = 1
+	}
+}
+END {
+	# HEADER
+	printf(OFS) # name
+	# print colnames
+	for (col=1; col<n; col++) {
+		printf(colnames[col] OFS)
+	}
+	printf(ORS)
+
+	# matrix
+	row = 1
+	for (var in rows) {
+		printf(rownames[row] OFS) #name
+		for (col=1; col<n; col++) {
+			printf((rows[row][col] == 1 ? 1 : 0) OFS)
+		}
+		printf(ORS)
+		row += 1
+	}
+	
+}
