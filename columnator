@@ -1,6 +1,6 @@
 #!/usr/bin/awk -f
 BEGIN {
-	FS = ","
+	FS = "\t"
 	subtipo = 1
 	componente = 2
 	comunidad = 3
@@ -10,7 +10,7 @@ BEGIN {
 	gomf = 7
 	nrow = 1 # contador de fila
 	ncol = 1 # contador de columna
-	OFS = ","
+	OFS = "\t"
 	ORS = "\n"
 	colnames[1] = "SUBTYPE"
 }
