@@ -25,6 +25,7 @@ NR > 1 {
 	for (i=1; i <= length(array); i++) {
 		# limpiar id para evitar repetidos
 		id = array[i]
+		if (id == "X") { continue }
 		gsub(/^[ \t]+|[ \t]+$/, "", id)
 		if (!(columns[id])) {
 			columns[id] = n
