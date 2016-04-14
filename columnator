@@ -27,7 +27,7 @@ NR > 1 {
 		id = array[i]
 
 		# descartar elemento vacío
-		if (id == "X") { continue }
+		if (id == "X" || id == "") { continue }
 
 		# limpiar id para evitar repetidos
 		gsub(/^[ \t]+|[ \t]+$/, "", id)
