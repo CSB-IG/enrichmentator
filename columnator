@@ -57,7 +57,6 @@ END {
 			printf(OFS (rows[row][col] == 1 ? 1 : 0))
 		}
 		printf(ORS)
-		row += 1
 	}
 
 }
