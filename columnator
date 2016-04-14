@@ -44,18 +44,17 @@ NR > 1 {
 }
 END {
 	# HEADER
-	printf(OFS) # name
 	# print colnames
 	for (col = 1; col < ncol; col++) {
-		printf(colnames[col] OFS)
+		printf(OFS colnames[col])
 	}
 	printf(ORS)
 
 	# matrix
 	for (row = 1; row < nrow; row++) {
-		printf(rownames[row] OFS) #name
+		printf(rownames[row]) #name
 		for (col = 1; col < ncol; col++) {
-			printf((rows[row][col] == 1 ? 1 : 0) OFS)
+			printf(OFS (rows[row][col] == 1 ? 1 : 0))
 		}
 		printf(ORS)
 		row += 1
